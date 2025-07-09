@@ -1,9 +1,7 @@
 package unicam.filieraagricolaids.models.articoli;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import unicam.filieraagricolaids.models.utenti.Animatore;
 
 import java.util.Date;
 
@@ -19,6 +17,8 @@ public class Evento {
     private String descrizione;
     private int maxPartecipanti;
     private int postiDisponibili;
+    @ManyToOne
+    private Animatore animatore;
 
     public Evento() {}
 
@@ -84,5 +84,12 @@ public class Evento {
 
     public void setPostiDisponibili(int postiDisponibili) {
         this.postiDisponibili = postiDisponibili;
+    }
+
+    public Animatore getAnimatore() {
+        return animatore;
+    }
+    public void setAnimatore(Animatore animatore) {
+        this.animatore = animatore;
     }
 }
